@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en-AU" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Royal Reels Casino - Play Online Slots &amp; Exclusive Bonuses</title>
+    <meta
+      name="description"
+      content="Explore Royal Reels Casino: premium online pokies, fast deposits, secure withdrawals, and exclusive welcome bonuses tailored for Australian players."
+    />
+    <link rel="canonical" href="https://www.royalreelscasino.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Royal Reels Casino - Play Online Slots &amp; Exclusive Bonuses" />
+    <meta
+      property="og:description"
+      content="Join Royal Reels Casino for handpicked slots, lightning-fast Australian payment methods, and rewarding loyalty perks."
+    />
+    <meta property="og:url" content="https://www.royalreelscasino.com/" />
+    <meta property="og:site_name" content="Royal Reels Casino" />
+    <meta property="og:image" content="https://www.royalreelscasino.com/og-image.jpg" />
+    <meta property="og:locale" content="en_AU" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Royal Reels Casino - Play Online Slots &amp; Exclusive Bonuses" />
+    <meta
+      name="twitter:description"
+      content="Experience Royal Reels Casino with top-rated pokies, trusted Australian payments, and verified fair play."
+    />
+    <meta name="theme-color" content="#0b0f14" />
+    <script src="https://cdn.tailwindcss.com?plugins=typography" defer></script>
+    <script>
+      window.tailwind = window.tailwind || {};
+      window.tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              night: '#0b0f14',
+              royal: '#14b8a6',
+              royalAccent: '#38bdf8',
+            },
+            fontFamily: {
+              sans: [
+                'SF Pro Display',
+                'SF Pro Text',
+                'system-ui',
+                'BlinkMacSystemFont',
+                'Segoe UI',
+                'Helvetica Neue',
+                'Arial',
+                'sans-serif',
+              ],
+            },
+            boxShadow: {
+              glow: '0 0 30px rgba(20, 184, 166, 0.25)',
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      body {
+        background-color: #0b0f14;
+      }
+      .no-scrollbar {
+        scrollbar-width: none;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .backdrop-glow {
+        background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.2), transparent 60%),
+          radial-gradient(circle at bottom left, rgba(45, 212, 191, 0.15), transparent 55%);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Royal Reels Casino",
+        "url": "https://www.royalreelscasino.com/",
+        "logo": "https://www.royalreelscasino.com/assets/logo.png",
+        "description": "Royal Reels Casino provides Australian players with curated online slots, live dealer games, and secure payment options.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "AU"
+        },
+        "areaServed": "AU",
+        "sameAs": [
+          "https://www.facebook.com/royalreelscasino",
+          "https://www.instagram.com/royalreelscasino"
+        ]
+      }
+    </script>
+    <script defer>
+      (function () {
+        const prefersReduced =
+          typeof window.matchMedia === 'function'
+            ? window.matchMedia('(prefers-reduced-motion: reduce)')
+            : { matches: false, addEventListener: null, addListener: null };
+
+        function initSlider(slider) {
+          const viewport = slider.querySelector('[data-slider-viewport]');
+          const slides = Array.from(slider.querySelectorAll('[data-slide]'));
+          const announcement = slider.querySelector('[data-slider-announcement]');
+          const prevBtn = slider.querySelector('[data-slider-prev]');
+          const nextBtn = slider.querySelector('[data-slider-next]');
+          let current = 0;
+          let autoplayId = null;
+          let isUserInteracting = false;
+          const total = slides.length;
+
+          const updateAnnouncement = () => {
+            if (announcement) {
+              announcement.textContent = `Showing testimonial ${current + 1} of ${total}`;
+            }
+          };
+
+          const goTo = (index, smooth = true) => {
+            current = (index + total) % total;
+            const target = slides[current];
+            viewport.scrollTo({ left: target.offsetLeft, behavior: smooth ? 'smooth' : 'auto' });
+            slider.dataset.activeIndex = current;
+            updateAnnouncement();
+          };
+
+          const startAutoplay = () => {
+            if (prefersReduced.matches) {
+              return;
+            }
+            window.clearInterval(autoplayId);
+            autoplayId = window.setInterval(() => {
+              if (!document.hidden && !isUserInteracting) {
+                goTo(current + 1);
+              }
+            }, 5000);
+          };
+
+          const stopAutoplay = () => window.clearInterval(autoplayId);
+
+          prevBtn?.addEventListener('click', () => {
+            goTo(current - 1);
+            startAutoplay();
+          });
+
+          nextBtn?.addEventListener('click', () => {
+            goTo(current + 1);
+            startAutoplay();
+          });
+
+          slider.addEventListener('mouseenter', () => {
+            isUserInteracting = true;
+          });
+
+          slider.addEventListener('mouseleave', () => {
+            isUserInteracting = false;
+          });
+
+          slider.addEventListener('focusin', () => {
+            isUserInteracting = true;
+          });
+
+          slider.addEventListener('focusout', (event) => {
+            if (!slider.contains(event.relatedTarget)) {
+              isUserInteracting = false;
+            }
+          });
+
+          viewport.addEventListener('pointerdown', () => {
+            isUserInteracting = true;
+            stopAutoplay();
+          });
+
+          const resumeIfNeeded = () => {
+            isUserInteracting = false;
+            startAutoplay();
+          };
+
+          viewport.addEventListener('pointerup', resumeIfNeeded);
+          viewport.addEventListener('pointerleave', () => {
+            if (!isUserInteracting) return;
+            resumeIfNeeded();
+          });
+
+          viewport.addEventListener('scroll', () => {
+            let closestIndex = current;
+            let minOffset = Number.POSITIVE_INFINITY;
+            slides.forEach((slide, index) => {
+              const diff = Math.abs(viewport.scrollLeft - slide.offsetLeft);
+              if (diff < minOffset) {
+                minOffset = diff;
+                closestIndex = index;
+              }
+            });
+            if (closestIndex !== current) {
+              current = closestIndex;
+              updateAnnouncement();
+            }
+          });
+
+          document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+              stopAutoplay();
+            } else {
+              startAutoplay();
+            }
+          });
+
+          if (prefersReduced.addEventListener) {
+            prefersReduced.addEventListener('change', () => {
+              if (prefersReduced.matches) {
+                stopAutoplay();
+              } else {
+                startAutoplay();
+              }
+            });
+          } else if (prefersReduced.addListener) {
+            prefersReduced.addListener((event) => {
+              if (event.matches) {
+                stopAutoplay();
+              } else {
+                startAutoplay();
+              }
+            });
+          }
+
+          goTo(0, false);
+          startAutoplay();
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+          document.querySelectorAll('[data-slider]').forEach((slider) => initSlider(slider));
+        });
+      })();
+    </script>
+  </head>
+  <body class="bg-night text-slate-100 antialiased">
+    <div class="backdrop-glow">
+      <!-- Header & Hero -->
+      <header class="relative">
+        <div class="absolute inset-0 -z-10 h-full w-full bg-gradient-to-br from-slate-900/70 via-night to-slate-950"></div>
+        <div class="mx-auto max-w-6xl px-4 pb-16 pt-10 sm:px-6 lg:px-8">
+          <nav class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-royal/10 text-2xl text-royal">♛</span>
+              <p class="text-lg font-semibold tracking-wide text-white">Royal Reels Casino</p>
+            </div>
+            <div class="hidden gap-4 sm:flex">
+              <a
+                href="#games"
+                class="text-sm font-medium text-slate-300 transition hover:text-royalAccent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent"
+                >Games</a
+              >
+              <a
+                href="#payments"
+                class="text-sm font-medium text-slate-300 transition hover:text-royalAccent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent"
+                >Payments</a
+              >
+              <a
+                href="#testimonials"
+                class="text-sm font-medium text-slate-300 transition hover:text-royalAccent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent"
+                >Testimonials</a
+              >
+            </div>
+          </nav>
+          <div class="mt-12 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center lg:gap-16">
+            <div>
+              <p class="inline-flex items-center gap-2 rounded-full border border-slate-700 px-4 py-1 text-xs uppercase tracking-[0.2em] text-royalAccent">
+                Trusted • Licensed • Mobile-first
+              </p>
+              <h1 class="mt-6 text-4xl font-bold leading-tight text-white sm:text-5xl">
+                Discover elite online pokies and bonuses crafted for Australian players.
+              </h1>
+              <p class="mt-6 max-w-2xl text-base text-slate-300">
+                Royal Reels Casino brings together handpicked slots, live dealer suites, and tailored promotions with instant PayID and card payouts. Join thousands of players enjoying secure gameplay, verified fairness, and responsive support every night of the week.
+              </p>
+              <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <a
+                  href="#games"
+                  class="inline-flex items-center justify-center rounded-full bg-royal px-8 py-3 text-sm font-semibold text-slate-950 shadow-glow transition hover:bg-teal-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent"
+                  >Play Now</a
+                >
+                <a
+                  href="#payments"
+                  class="inline-flex items-center justify-center rounded-full border border-slate-700 px-8 py-3 text-sm font-semibold text-white transition hover:border-royalAccent hover:text-royalAccent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent"
+                  >Claim Bonus</a
+                >
+              </div>
+              <div class="mt-10 grid gap-6 text-sm text-slate-200 sm:grid-cols-3">
+                <div class="flex items-start gap-3">
+                  <svg class="h-6 w-6 text-royal" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                    <path
+                      d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm-1 15-4-4 1.41-1.41L11 13.17l5.59-5.58L18 9Z"
+                    />
+                  </svg>
+                  <div>
+                    <p class="font-semibold text-white">Licensed &amp; regulated</p>
+                    <p class="mt-1 text-slate-400">Curacao eGaming certified with independent RTP audits.</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="h-6 w-6 text-royal" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                    <path
+                      d="M12 2a10 10 0 0 0-3.16 19.47l.47-1.94a8 8 0 1 1 7.38-7.38l1.94-.47A10 10 0 0 0 12 2Zm1 11h-2V7h2Zm0 4h-2v-2h2Z"
+                    />
+                  </svg>
+                  <div>
+                    <p class="font-semibold text-white">SSL encryption</p>
+                    <p class="mt-1 text-slate-400">End-to-end TLS protection and secure account controls.</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="h-6 w-6 text-royal" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                    <path
+                      d="M12 2a7 7 0 0 0-7 7v3.26A4 4 0 0 0 3 16a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4 4 4 0 0 0-2-3.43V9a7 7 0 0 0-7-7Zm0 2a5 5 0 0 1 5 5v3H7V9a5 5 0 0 1 5-5Zm-5 11h10a2 2 0 1 1 0 4H7a2 2 0 1 1 0-4Z"
+                    />
+                  </svg>
+                  <div>
+                    <p class="font-semibold text-white">Fast payouts</p>
+                    <p class="mt-1 text-slate-400">PayID withdrawals approved within hours after KYC.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="relative flex justify-center lg:justify-end">
+              <div class="absolute -top-6 right-10 hidden h-40 w-40 rounded-full bg-royal/20 blur-3xl lg:block"></div>
+              <div class="relative w-full max-w-sm rounded-3xl border border-slate-800 bg-slate-900/60 p-6 shadow-xl shadow-black/30 backdrop-blur">
+                <p class="text-sm uppercase tracking-[0.3em] text-royalAccent">Jackpot spotlight</p>
+                <p class="mt-3 text-3xl font-semibold text-white">$4.2M</p>
+                <p class="mt-2 text-sm text-slate-400">Total won in the last 30 days across our Royal Reels progressive network.</p>
+                <dl class="mt-6 space-y-4 text-sm text-slate-300">
+                  <div class="flex justify-between border-b border-slate-800 pb-3">
+                    <dt>Top paying slot</dt>
+                    <dd class="font-medium text-white">Dragon's Drift</dd>
+                  </div>
+                  <div class="flex justify-between border-b border-slate-800 pb-3">
+                    <dt>Average payout speed</dt>
+                    <dd class="font-medium text-white">1.9 hours</dd>
+                  </div>
+                  <div class="flex justify-between">
+                    <dt>Welcome package</dt>
+                    <dd class="font-medium text-white">Bonus up to $3,000</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <!-- Main Content Block -->
+        <section id="about" class="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
+          <div class="rounded-3xl border border-slate-800 bg-slate-900/60 p-8 shadow-xl shadow-black/20 sm:p-10">
+            <div class="prose prose-invert max-w-none">
+              <h2>Royal Reels Casino: premium entertainment, tailored for Australia</h2>
+              <p>
+                From the moment you sign up, you are welcomed with curated bonuses, cashback missions, and seasonal tournaments that respect your time and bankroll. Every game on Royal Reels Casino is independently certified and supplied by Tier 1 developers including NetEnt, Pragmatic Play, Thunderkick, and Quickspin.
+              </p>
+              <p>
+                Royal Reels Casino operates under a Curacao eGaming licence and adheres to AML/CTF requirements for Australian customers. Deposits and withdrawals are processed through trusted partners such as PayID, NeoSurf, Visa, and Mastercard with full PCI-DSS compliance.
+              </p>
+              <p>
+                Responsible gambling is at the heart of our experience—set custom deposit limits, activate cooling-off periods, and reach our 24/7 responsible gaming team for personal assistance whenever you need it.
+              </p>
+            </div>
+            <p class="mt-6 text-xs uppercase tracking-[0.25em] text-slate-400">
+              18+ only. Play responsibly. Visit our <a href="#responsible" class="text-royalAccent underline underline-offset-4">Responsible Gaming</a> hub for tools and support.
+            </p>
+          </div>
+        </section>
+
+        <!-- Comparative Tables: Slots -->
+        <section id="games" class="mx-auto max-w-6xl px-4 pb-14 sm:px-6 lg:px-8">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 class="text-2xl font-semibold text-white">Featured online slots</h2>
+              <p class="mt-2 max-w-3xl text-sm text-slate-400">
+                Explore high-volatility jackpots and classic pokies with detailed stats to help you choose your next Royal Reels session.
+              </p>
+            </div>
+            <a
+              href="#payments"
+              class="text-sm font-semibold text-royalAccent transition hover:text-royal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent"
+              >View banking options</a
+            >
+          </div>
+          <div class="mt-8 space-y-6">
+            <div class="space-y-3 md:hidden" role="list">
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5" aria-label="Royal Riches slot details">
+                <h3 class="text-lg font-semibold text-white">Royal Riches</h3>
+                <dl class="mt-4 space-y-2 text-sm">
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Provider</dt>
+                    <dd class="font-medium text-slate-200">NetEnt</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">RTP</dt>
+                    <dd class="font-medium text-slate-200">97.2%</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Volatility</dt>
+                    <dd class="font-medium text-slate-200">Medium</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Min Bet</dt>
+                    <dd class="font-medium text-slate-200">$0.10</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Max Win</dt>
+                    <dd class="font-medium text-slate-200">10,000x</dd>
+                  </div>
+                </dl>
+              </article>
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5" aria-label="Coral Crown slot details">
+                <h3 class="text-lg font-semibold text-white">Coral Crown</h3>
+                <dl class="mt-4 space-y-2 text-sm">
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Provider</dt>
+                    <dd class="font-medium text-slate-200">Microgaming</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">RTP</dt>
+                    <dd class="font-medium text-slate-200">95.8%</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Volatility</dt>
+                    <dd class="font-medium text-slate-200">High</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Min Bet</dt>
+                    <dd class="font-medium text-slate-200">$0.20</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Max Win</dt>
+                    <dd class="font-medium text-slate-200">8,500x</dd>
+                  </div>
+                </dl>
+              </article>
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5" aria-label="Sapphire Storm slot details">
+                <h3 class="text-lg font-semibold text-white">Sapphire Storm</h3>
+                <dl class="mt-4 space-y-2 text-sm">
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Provider</dt>
+                    <dd class="font-medium text-slate-200">Pragmatic Play</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">RTP</dt>
+                    <dd class="font-medium text-slate-200">96.9%</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Volatility</dt>
+                    <dd class="font-medium text-slate-200">Medium-High</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Min Bet</dt>
+                    <dd class="font-medium text-slate-200">$0.25</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Max Win</dt>
+                    <dd class="font-medium text-slate-200">12,000x</dd>
+                  </div>
+                </dl>
+              </article>
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5" aria-label="Outback Gold slot details">
+                <h3 class="text-lg font-semibold text-white">Outback Gold</h3>
+                <dl class="mt-4 space-y-2 text-sm">
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Provider</dt>
+                    <dd class="font-medium text-slate-200">Quickspin</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">RTP</dt>
+                    <dd class="font-medium text-slate-200">96.4%</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Volatility</dt>
+                    <dd class="font-medium text-slate-200">Medium</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Min Bet</dt>
+                    <dd class="font-medium text-slate-200">$0.15</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Max Win</dt>
+                    <dd class="font-medium text-slate-200">6,800x</dd>
+                  </div>
+                </dl>
+              </article>
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5" aria-label="Nightfall Fortune slot details">
+                <h3 class="text-lg font-semibold text-white">Nightfall Fortune</h3>
+                <dl class="mt-4 space-y-2 text-sm">
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Provider</dt>
+                    <dd class="font-medium text-slate-200">Thunderkick</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">RTP</dt>
+                    <dd class="font-medium text-slate-200">97.0%</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Volatility</dt>
+                    <dd class="font-medium text-slate-200">Low</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Min Bet</dt>
+                    <dd class="font-medium text-slate-200">$0.05</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Max Win</dt>
+                    <dd class="font-medium text-slate-200">4,500x</dd>
+                  </div>
+                </dl>
+              </article>
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5" aria-label="Dragon's Drift slot details">
+                <h3 class="text-lg font-semibold text-white">Dragon's Drift</h3>
+                <dl class="mt-4 space-y-2 text-sm">
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Provider</dt>
+                    <dd class="font-medium text-slate-200">Yggdrasil</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">RTP</dt>
+                    <dd class="font-medium text-slate-200">96.6%</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Volatility</dt>
+                    <dd class="font-medium text-slate-200">High</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Min Bet</dt>
+                    <dd class="font-medium text-slate-200">$0.30</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Max Win</dt>
+                    <dd class="font-medium text-slate-200">20,000x</dd>
+                  </div>
+                </dl>
+              </article>
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5" aria-label="Lucky Koala slot details">
+                <h3 class="text-lg font-semibold text-white">Lucky Koala</h3>
+                <dl class="mt-4 space-y-2 text-sm">
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Provider</dt>
+                    <dd class="font-medium text-slate-200">Play'n GO</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">RTP</dt>
+                    <dd class="font-medium text-slate-200">96.2%</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Volatility</dt>
+                    <dd class="font-medium text-slate-200">Low</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Min Bet</dt>
+                    <dd class="font-medium text-slate-200">$0.10</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Max Win</dt>
+                    <dd class="font-medium text-slate-200">5,000x</dd>
+                  </div>
+                </dl>
+              </article>
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5" aria-label="Neon Mirage slot details">
+                <h3 class="text-lg font-semibold text-white">Neon Mirage</h3>
+                <dl class="mt-4 space-y-2 text-sm">
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Provider</dt>
+                    <dd class="font-medium text-slate-200">Red Tiger</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">RTP</dt>
+                    <dd class="font-medium text-slate-200">95.5%</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Volatility</dt>
+                    <dd class="font-medium text-slate-200">Medium</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Min Bet</dt>
+                    <dd class="font-medium text-slate-200">$0.20</dd>
+                  </div>
+                  <div class="flex justify-between gap-6">
+                    <dt class="text-slate-400">Max Win</dt>
+                    <dd class="font-medium text-slate-200">7,200x</dd>
+                  </div>
+                </dl>
+              </article>
+            </div>
+            <div class="hidden overflow-hidden rounded-3xl border border-slate-800 md:block">
+              <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-slate-800 text-sm" aria-describedby="slots-caption">
+                  <caption id="slots-caption" class="sr-only">Featured online slots table</caption>
+                  <thead class="bg-slate-900 text-xs uppercase tracking-widest text-slate-400">
+                    <tr>
+                      <th scope="col" class="sticky top-0 bg-slate-900 px-6 py-3 text-left font-semibold">Game</th>
+                      <th scope="col" class="sticky top-0 bg-slate-900 px-6 py-3 text-left font-semibold">Provider</th>
+                      <th scope="col" class="sticky top-0 bg-slate-900 px-6 py-3 text-left font-semibold">RTP</th>
+                      <th scope="col" class="sticky top-0 bg-slate-900 px-6 py-3 text-left font-semibold">Volatility</th>
+                      <th scope="col" class="sticky top-0 bg-slate-900 px-6 py-3 text-left font-semibold">Min Bet</th>
+                      <th scope="col" class="sticky top-0 bg-slate-900 px-6 py-3 text-left font-semibold">Max Win</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-800">
+                    <tr tabindex="0" class="odd:bg-slate-900 even:bg-slate-900/60 hover:bg-slate-800/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent">
+                      <td class="px-6 py-4 font-medium text-white">Royal Riches</td>
+                      <td class="px-6 py-4 text-slate-200">NetEnt</td>
+                      <td class="px-6 py-4 text-slate-200">97.2%</td>
+                      <td class="px-6 py-4 text-slate-200">Medium</td>
+                      <td class="px-6 py-4 text-slate-200">$0.10</td>
+                      <td class="px-6 py-4 text-slate-200">10,000x</td>
+                    </tr>
+                    <tr tabindex="0" class="odd:bg-slate-900 even:bg-slate-900/60 hover:bg-slate-800/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent">
+                      <td class="px-6 py-4 font-medium text-white">Coral Crown</td>
+                      <td class="px-6 py-4 text-slate-200">Microgaming</td>
+                      <td class="px-6 py-4 text-slate-200">95.8%</td>
+                      <td class="px-6 py-4 text-slate-200">High</td>
+                      <td class="px-6 py-4 text-slate-200">$0.20</td>
+                      <td class="px-6 py-4 text-slate-200">8,500x</td>
+                    </tr>
+                    <tr tabindex="0" class="odd:bg-slate-900 even:bg-slate-900/60 hover:bg-slate-800/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent">
+                      <td class="px-6 py-4 font-medium text-white">Sapphire Storm</td>
+                      <td class="px-6 py-4 text-slate-200">Pragmatic Play</td>
+                      <td class="px-6 py-4 text-slate-200">96.9%</td>
+                      <td class="px-6 py-4 text-slate-200">Medium-High</td>
+                      <td class="px-6 py-4 text-slate-200">$0.25</td>
+                      <td class="px-6 py-4 text-slate-200">12,000x</td>
+                    </tr>
+                    <tr tabindex="0" class="odd:bg-slate-900 even:bg-slate-900/60 hover:bg-slate-800/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent">
+                      <td class="px-6 py-4 font-medium text-white">Outback Gold</td>
+                      <td class="px-6 py-4 text-slate-200">Quickspin</td>
+                      <td class="px-6 py-4 text-slate-200">96.4%</td>
+                      <td class="px-6 py-4 text-slate-200">Medium</td>
+                      <td class="px-6 py-4 text-slate-200">$0.15</td>
+                      <td class="px-6 py-4 text-slate-200">6,800x</td>
+                    </tr>
+                    <tr tabindex="0" class="odd:bg-slate-900 even:bg-slate-900/60 hover:bg-slate-800/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent">
+                      <td class="px-6 py-4 font-medium text-white">Nightfall Fortune</td>
+                      <td class="px-6 py-4 text-slate-200">Thunderkick</td>
+                      <td class="px-6 py-4 text-slate-200">97.0%</td>
+                      <td class="px-6 py-4 text-slate-200">Low</td>
+                      <td class="px-6 py-4 text-slate-200">$0.05</td>
+                      <td class="px-6 py-4 text-slate-200">4,500x</td>
+                    </tr>
+                    <tr tabindex="0" class="odd:bg-slate-900 even:bg-slate-900/60 hover:bg-slate-800/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent">
+                      <td class="px-6 py-4 font-medium text-white">Dragon's Drift</td>
+                      <td class="px-6 py-4 text-slate-200">Yggdrasil</td>
+                      <td class="px-6 py-4 text-slate-200">96.6%</td>
+                      <td class="px-6 py-4 text-slate-200">High</td>
+                      <td class="px-6 py-4 text-slate-200">$0.30</td>
+                      <td class="px-6 py-4 text-slate-200">20,000x</td>
+                    </tr>
+                    <tr tabindex="0" class="odd:bg-slate-900 even:bg-slate-900/60 hover:bg-slate-800/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent">
+                      <td class="px-6 py-4 font-medium text-white">Lucky Koala</td>
+                      <td class="px-6 py-4 text-slate-200">Play'n GO</td>
+                      <td class="px-6 py-4 text-slate-200">96.2%</td>
+                      <td class="px-6 py-4 text-slate-200">Low</td>
+                      <td class="px-6 py-4 text-slate-200">$0.10</td>
+                      <td class="px-6 py-4 text-slate-200">5,000x</td>
+                    </tr>
+                    <tr tabindex="0" class="odd:bg-slate-900 even:bg-slate-900/60 hover:bg-slate-800/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent">
+                      <td class="px-6 py-4 font-medium text-white">Neon Mirage</td>
+                      <td class="px-6 py-4 text-slate-200">Red Tiger</td>
+                      <td class="px-6 py-4 text-slate-200">95.5%</td>
+                      <td class="px-6 py-4 text-slate-200">Medium</td>
+                      <td class="px-6 py-4 text-slate-200">$0.20</td>
+                      <td class="px-6 py-4 text-slate-200">7,200x</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Comparative Tables: Deposit Methods -->
+        <section id="payments" class="mx-auto max-w-6xl px-4 pb-14 sm:px-6 lg:px-8">
+          <div class="rounded-3xl border border-slate-800 bg-slate-900/60 p-8 shadow-xl shadow-black/20 sm:p-10">
+            <h2 class="text-2xl font-semibold text-white">Deposit methods</h2>
+            <p class="mt-2 max-w-3xl text-sm text-slate-400">
+              Select the funding option that works best for you. All payments are processed over encrypted connections and instantly reflected in your bankroll.
+            </p>
+            <div class="mt-8 space-y-3 md:hidden" role="list">
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5" aria-label="PayID deposit details">
+                <h3 class="text-lg font-semibold text-white">PayID</h3>
+                <dl class="mt-3 space-y-2 text-sm">
+                  <div class="flex justify-between"><dt class="text-slate-400">Min Deposit</dt><dd class="text-slate-100">$10</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Fees</dt><dd class="text-slate-100">$0</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Processing</dt><dd class="text-slate-100">Instant</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Notes</dt><dd class="text-slate-100">Linked to Australian banks</dd></div>
+                </dl>
+              </article>
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5" aria-label="NeoSurf deposit details">
+                <h3 class="text-lg font-semibold text-white">NeoSurf</h3>
+                <dl class="mt-3 space-y-2 text-sm">
+                  <div class="flex justify-between"><dt class="text-slate-400">Min Deposit</dt><dd class="text-slate-100">$20</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Fees</dt><dd class="text-slate-100">2% vendor surcharge</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Processing</dt><dd class="text-slate-100">Instant</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Notes</dt><dd class="text-slate-100">Prepaid voucher redemption</dd></div>
+                </dl>
+              </article>
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5" aria-label="Visa deposit details">
+                <h3 class="text-lg font-semibold text-white">Visa</h3>
+                <dl class="mt-3 space-y-2 text-sm">
+                  <div class="flex justify-between"><dt class="text-slate-400">Min Deposit</dt><dd class="text-slate-100">$20</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Fees</dt><dd class="text-slate-100">$0</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Processing</dt><dd class="text-slate-100">Instant</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Notes</dt><dd class="text-slate-100">Supports 3D Secure</dd></div>
+                </dl>
+              </article>
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5" aria-label="Mastercard deposit details">
+                <h3 class="text-lg font-semibold text-white">Mastercard</h3>
+                <dl class="mt-3 space-y-2 text-sm">
+                  <div class="flex justify-between"><dt class="text-slate-400">Min Deposit</dt><dd class="text-slate-100">$20</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Fees</dt><dd class="text-slate-100">$0</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Processing</dt><dd class="text-slate-100">Instant</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Notes</dt><dd class="text-slate-100">Eligible for card rewards</dd></div>
+                </dl>
+              </article>
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5" aria-label="Bank transfer deposit details">
+                <h3 class="text-lg font-semibold text-white">Bank transfer (NPP)</h3>
+                <dl class="mt-3 space-y-2 text-sm">
+                  <div class="flex justify-between"><dt class="text-slate-400">Min Deposit</dt><dd class="text-slate-100">$50</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Fees</dt><dd class="text-slate-100">$0</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Processing</dt><dd class="text-slate-100">1-2 hours</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Notes</dt><dd class="text-slate-100">Works 7 days via NPP</dd></div>
+                </dl>
+              </article>
+            </div>
+            <div class="hidden overflow-hidden rounded-2xl border border-slate-800 md:block">
+              <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-slate-800 text-sm" aria-describedby="deposits-caption">
+                  <caption id="deposits-caption" class="sr-only">Deposit methods table</caption>
+                  <thead class="bg-slate-900 text-xs uppercase tracking-widest text-slate-400">
+                    <tr>
+                      <th scope="col" class="sticky top-0 bg-slate-900 px-6 py-3 text-left font-semibold">Method</th>
+                      <th scope="col" class="sticky top-0 bg-slate-900 px-6 py-3 text-left font-semibold">Min Deposit</th>
+                      <th scope="col" class="sticky top-0 bg-slate-900 px-6 py-3 text-left font-semibold">Fees</th>
+                      <th scope="col" class="sticky top-0 bg-slate-900 px-6 py-3 text-left font-semibold">Processing Time</th>
+                      <th scope="col" class="sticky top-0 bg-slate-900 px-6 py-3 text-left font-semibold">Notes</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-800">
+                    <tr tabindex="0" class="odd:bg-slate-900 even:bg-slate-900/60 hover:bg-slate-800/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent">
+                      <td class="px-6 py-4 font-medium text-white">PayID</td>
+                      <td class="px-6 py-4 text-slate-200">$10</td>
+                      <td class="px-6 py-4 text-slate-200">$0</td>
+                      <td class="px-6 py-4 text-slate-200">Instant</td>
+                      <td class="px-6 py-4 text-slate-200">Linked to Australian banks</td>
+                    </tr>
+                    <tr tabindex="0" class="odd:bg-slate-900 even:bg-slate-900/60 hover:bg-slate-800/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent">
+                      <td class="px-6 py-4 font-medium text-white">NeoSurf</td>
+                      <td class="px-6 py-4 text-slate-200">$20</td>
+                      <td class="px-6 py-4 text-slate-200">2% vendor surcharge</td>
+                      <td class="px-6 py-4 text-slate-200">Instant</td>
+                      <td class="px-6 py-4 text-slate-200">Prepaid voucher redemption</td>
+                    </tr>
+                    <tr tabindex="0" class="odd:bg-slate-900 even:bg-slate-900/60 hover:bg-slate-800/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent">
+                      <td class="px-6 py-4 font-medium text-white">Visa</td>
+                      <td class="px-6 py-4 text-slate-200">$20</td>
+                      <td class="px-6 py-4 text-slate-200">$0</td>
+                      <td class="px-6 py-4 text-slate-200">Instant</td>
+                      <td class="px-6 py-4 text-slate-200">Supports 3D Secure</td>
+                    </tr>
+                    <tr tabindex="0" class="odd:bg-slate-900 even:bg-slate-900/60 hover:bg-slate-800/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent">
+                      <td class="px-6 py-4 font-medium text-white">Mastercard</td>
+                      <td class="px-6 py-4 text-slate-200">$20</td>
+                      <td class="px-6 py-4 text-slate-200">$0</td>
+                      <td class="px-6 py-4 text-slate-200">Instant</td>
+                      <td class="px-6 py-4 text-slate-200">Eligible for card rewards</td>
+                    </tr>
+                    <tr tabindex="0" class="odd:bg-slate-900 even:bg-slate-900/60 hover:bg-slate-800/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent">
+                      <td class="px-6 py-4 font-medium text-white">Bank transfer (NPP)</td>
+                      <td class="px-6 py-4 text-slate-200">$50</td>
+                      <td class="px-6 py-4 text-slate-200">$0</td>
+                      <td class="px-6 py-4 text-slate-200">1-2 hours</td>
+                      <td class="px-6 py-4 text-slate-200">Available 7 days via New Payments Platform</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Comparative Tables: Withdrawal Methods -->
+        <section class="mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:px-8">
+          <div class="rounded-3xl border border-slate-800 bg-slate-900/60 p-8 shadow-xl shadow-black/20 sm:p-10">
+            <h2 class="text-2xl font-semibold text-white">Withdrawal methods</h2>
+            <p class="mt-2 max-w-3xl text-sm text-slate-400">
+              Cash out on your terms with transparent fees and processing times. Verification is streamlined with digital uploads and live support.
+            </p>
+            <div class="mt-8 space-y-3 md:hidden" role="list">
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5" aria-label="PayID withdrawal details">
+                <h3 class="text-lg font-semibold text-white">PayID</h3>
+                <dl class="mt-3 space-y-2 text-sm">
+                  <div class="flex justify-between"><dt class="text-slate-400">Min Withdrawal</dt><dd class="text-slate-100">$50</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Fees</dt><dd class="text-slate-100">$0</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Processing</dt><dd class="text-slate-100">Within 2 hours</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">KYC</dt><dd class="text-slate-100">Required</dd></div>
+                </dl>
+              </article>
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5" aria-label="Bank transfer withdrawal details">
+                <h3 class="text-lg font-semibold text-white">Bank transfer</h3>
+                <dl class="mt-3 space-y-2 text-sm">
+                  <div class="flex justify-between"><dt class="text-slate-400">Min Withdrawal</dt><dd class="text-slate-100">$100</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Fees</dt><dd class="text-slate-100">$0</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Processing</dt><dd class="text-slate-100">1-3 business days</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">KYC</dt><dd class="text-slate-100">Required</dd></div>
+                </dl>
+              </article>
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5" aria-label="NeoSurf withdrawal details">
+                <h3 class="text-lg font-semibold text-white">NeoSurf voucher</h3>
+                <dl class="mt-3 space-y-2 text-sm">
+                  <div class="flex justify-between"><dt class="text-slate-400">Min Withdrawal</dt><dd class="text-slate-100">$50</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Fees</dt><dd class="text-slate-100">$3 processing</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Processing</dt><dd class="text-slate-100">Within 24 hours</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">KYC</dt><dd class="text-slate-100">Not required</dd></div>
+                </dl>
+              </article>
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5" aria-label="Visa withdrawal details">
+                <h3 class="text-lg font-semibold text-white">Visa</h3>
+                <dl class="mt-3 space-y-2 text-sm">
+                  <div class="flex justify-between"><dt class="text-slate-400">Min Withdrawal</dt><dd class="text-slate-100">$50</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Fees</dt><dd class="text-slate-100">$0</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Processing</dt><dd class="text-slate-100">1-5 business days</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">KYC</dt><dd class="text-slate-100">Required</dd></div>
+                </dl>
+              </article>
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5" aria-label="Mastercard withdrawal details">
+                <h3 class="text-lg font-semibold text-white">Mastercard</h3>
+                <dl class="mt-3 space-y-2 text-sm">
+                  <div class="flex justify-between"><dt class="text-slate-400">Min Withdrawal</dt><dd class="text-slate-100">$50</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Fees</dt><dd class="text-slate-100">$0</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Processing</dt><dd class="text-slate-100">1-5 business days</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">KYC</dt><dd class="text-slate-100">Required</dd></div>
+                </dl>
+              </article>
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5" aria-label="Crypto withdrawal details">
+                <h3 class="text-lg font-semibold text-white">Crypto payout</h3>
+                <dl class="mt-3 space-y-2 text-sm">
+                  <div class="flex justify-between"><dt class="text-slate-400">Min Withdrawal</dt><dd class="text-slate-100">$150</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Fees</dt><dd class="text-slate-100">0.5% network</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">Processing</dt><dd class="text-slate-100">Within 1 hour</dd></div>
+                  <div class="flex justify-between"><dt class="text-slate-400">KYC</dt><dd class="text-slate-100">Required</dd></div>
+                </dl>
+              </article>
+            </div>
+            <div class="hidden overflow-hidden rounded-2xl border border-slate-800 md:block">
+              <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-slate-800 text-sm" aria-describedby="withdrawals-caption">
+                  <caption id="withdrawals-caption" class="sr-only">Withdrawal methods table</caption>
+                  <thead class="bg-slate-900 text-xs uppercase tracking-widest text-slate-400">
+                    <tr>
+                      <th scope="col" class="sticky top-0 bg-slate-900 px-6 py-3 text-left font-semibold">Method</th>
+                      <th scope="col" class="sticky top-0 bg-slate-900 px-6 py-3 text-left font-semibold">Min Withdrawal</th>
+                      <th scope="col" class="sticky top-0 bg-slate-900 px-6 py-3 text-left font-semibold">Fees</th>
+                      <th scope="col" class="sticky top-0 bg-slate-900 px-6 py-3 text-left font-semibold">Processing Time</th>
+                      <th scope="col" class="sticky top-0 bg-slate-900 px-6 py-3 text-left font-semibold">KYC Required</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-800">
+                    <tr tabindex="0" class="odd:bg-slate-900 even:bg-slate-900/60 hover:bg-slate-800/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent">
+                      <td class="px-6 py-4 font-medium text-white">PayID</td>
+                      <td class="px-6 py-4 text-slate-200">$50</td>
+                      <td class="px-6 py-4 text-slate-200">$0</td>
+                      <td class="px-6 py-4 text-slate-200">Within 2 hours</td>
+                      <td class="px-6 py-4 text-slate-200">Yes</td>
+                    </tr>
+                    <tr tabindex="0" class="odd:bg-slate-900 even:bg-slate-900/60 hover:bg-slate-800/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent">
+                      <td class="px-6 py-4 font-medium text-white">Bank transfer</td>
+                      <td class="px-6 py-4 text-slate-200">$100</td>
+                      <td class="px-6 py-4 text-slate-200">$0</td>
+                      <td class="px-6 py-4 text-slate-200">1-3 business days</td>
+                      <td class="px-6 py-4 text-slate-200">Yes</td>
+                    </tr>
+                    <tr tabindex="0" class="odd:bg-slate-900 even:bg-slate-900/60 hover:bg-slate-800/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent">
+                      <td class="px-6 py-4 font-medium text-white">NeoSurf voucher</td>
+                      <td class="px-6 py-4 text-slate-200">$50</td>
+                      <td class="px-6 py-4 text-slate-200">$3 processing</td>
+                      <td class="px-6 py-4 text-slate-200">Within 24 hours</td>
+                      <td class="px-6 py-4 text-slate-200">No</td>
+                    </tr>
+                    <tr tabindex="0" class="odd:bg-slate-900 even:bg-slate-900/60 hover:bg-slate-800/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent">
+                      <td class="px-6 py-4 font-medium text-white">Visa</td>
+                      <td class="px-6 py-4 text-slate-200">$50</td>
+                      <td class="px-6 py-4 text-slate-200">$0</td>
+                      <td class="px-6 py-4 text-slate-200">1-5 business days</td>
+                      <td class="px-6 py-4 text-slate-200">Yes</td>
+                    </tr>
+                    <tr tabindex="0" class="odd:bg-slate-900 even:bg-slate-900/60 hover:bg-slate-800/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent">
+                      <td class="px-6 py-4 font-medium text-white">Mastercard</td>
+                      <td class="px-6 py-4 text-slate-200">$50</td>
+                      <td class="px-6 py-4 text-slate-200">$0</td>
+                      <td class="px-6 py-4 text-slate-200">1-5 business days</td>
+                      <td class="px-6 py-4 text-slate-200">Yes</td>
+                    </tr>
+                    <tr tabindex="0" class="odd:bg-slate-900 even:bg-slate-900/60 hover:bg-slate-800/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent">
+                      <td class="px-6 py-4 font-medium text-white">Crypto payout</td>
+                      <td class="px-6 py-4 text-slate-200">$150</td>
+                      <td class="px-6 py-4 text-slate-200">0.5% network</td>
+                      <td class="px-6 py-4 text-slate-200">Within 1 hour</td>
+                      <td class="px-6 py-4 text-slate-200">Yes</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Payment Logos Block -->
+        <section class="mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:px-8">
+          <div class="rounded-3xl border border-slate-800 bg-slate-900/60 p-8 shadow-xl shadow-black/20 sm:p-10">
+            <h2 class="text-2xl font-semibold text-white">Trusted payment partners</h2>
+            <p class="mt-2 max-w-3xl text-sm text-slate-400">
+              We support leading Australian-friendly payment methods. Every transaction is protected by 256-bit SSL and monitored around the clock.
+            </p>
+            <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <figure class="flex h-28 items-center justify-center rounded-2xl border border-slate-800 bg-slate-900/80" role="group" aria-labelledby="logo-payid">
+                <svg
+                  id="logo-payid"
+                  role="img"
+                  aria-label="PayID logo"
+                  width="132"
+                  height="48"
+                  viewBox="0 0 132 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="text-royalAccent"
+                >
+                  <rect x="2" y="2" width="128" height="44" rx="12" stroke="currentColor" stroke-width="2" opacity="0.4"></rect>
+                  <path
+                    d="M22 24c0-6.627 5.373-12 12-12h12c6.627 0 12 5.373 12 12s-5.373 12-12 12H34c-6.627 0-12-5.373-12-12Z"
+                    fill="currentColor"
+                    opacity="0.12"
+                  ></path>
+                  <text x="34" y="29" fill="currentColor" font-family="SF Pro Text, system-ui, sans-serif" font-size="18" font-weight="600">PayID</text>
+                  <path d="M24 24h8l-4 7.5L24 24Z" fill="currentColor" />
+                </svg>
+              </figure>
+              <figure class="flex h-28 items-center justify-center rounded-2xl border border-slate-800 bg-slate-900/80" role="group" aria-labelledby="logo-neosurf">
+                <svg
+                  id="logo-neosurf"
+                  role="img"
+                  aria-label="NeoSurf logo"
+                  width="132"
+                  height="48"
+                  viewBox="0 0 132 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect x="2" y="2" width="128" height="44" rx="12" stroke="#f472b6" stroke-width="2" opacity="0.4"></rect>
+                  <text x="24" y="29" fill="#f472b6" font-family="SF Pro Text, system-ui, sans-serif" font-size="20" font-weight="700">NeoSurf</text>
+                  <path d="M24 18h12l4 6-4 6H24l-4-6 4-6Z" fill="#f472b6" opacity="0.2"></path>
+                </svg>
+              </figure>
+              <figure class="flex h-28 items-center justify-center rounded-2xl border border-slate-800 bg-slate-900/80" role="group" aria-labelledby="logo-visa">
+                <svg
+                  id="logo-visa"
+                  role="img"
+                  aria-label="Visa logo"
+                  width="132"
+                  height="48"
+                  viewBox="0 0 132 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect x="2" y="2" width="128" height="44" rx="12" stroke="#38bdf8" stroke-width="2" opacity="0.4"></rect>
+                  <text x="35" y="29" fill="#38bdf8" font-family="SF Pro Text, system-ui, sans-serif" font-size="22" font-weight="700">VISA</text>
+                  <path d="M30 18h20l-2 12h-16l-2-12Z" fill="#38bdf8" opacity="0.15"></path>
+                </svg>
+              </figure>
+              <figure class="flex h-28 items-center justify-center rounded-2xl border border-slate-800 bg-slate-900/80" role="group" aria-labelledby="logo-mastercard">
+                <svg
+                  id="logo-mastercard"
+                  role="img"
+                  aria-label="Mastercard logo"
+                  width="132"
+                  height="48"
+                  viewBox="0 0 132 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect x="2" y="2" width="128" height="44" rx="12" stroke="#fbbf24" stroke-width="2" opacity="0.4"></rect>
+                  <circle cx="56" cy="24" r="10" fill="#f97316" opacity="0.7"></circle>
+                  <circle cx="72" cy="24" r="10" fill="#facc15" opacity="0.8"></circle>
+                  <text x="88" y="29" fill="#fbbf24" font-family="SF Pro Text, system-ui, sans-serif" font-size="16" font-weight="600">Mastercard</text>
+                </svg>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- Testimonials Slider -->
+        <section id="testimonials" class="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
+          <div class="rounded-3xl border border-slate-800 bg-slate-900/60 p-8 shadow-xl shadow-black/20 sm:p-10">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <h2 class="text-2xl font-semibold text-white">Players rate Royal Reels 4.8/5</h2>
+                <p class="mt-2 text-sm text-slate-400">See what real Australian players say about our games, promos, and payouts.</p>
+              </div>
+              <div class="flex gap-3">
+                <button
+                  type="button"
+                  class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-slate-300 transition hover:text-royalAccent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent"
+                  aria-label="Previous testimonial"
+                  data-slider-prev
+                >
+                  <span aria-hidden="true">&#8592;</span>
+                </button>
+                <button
+                  type="button"
+                  class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-slate-300 transition hover:text-royalAccent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent"
+                  aria-label="Next testimonial"
+                  data-slider-next
+                >
+                  <span aria-hidden="true">&#8594;</span>
+                </button>
+              </div>
+            </div>
+            <div class="relative mt-8" data-slider role="region" aria-roledescription="carousel" aria-label="Royal Reels testimonials">
+              <p class="sr-only" data-slider-announcement aria-live="polite"></p>
+              <div class="overflow-x-auto no-scrollbar scroll-smooth" data-slider-viewport tabindex="0" aria-controls="testimonial-track">
+                <ul
+                  id="testimonial-track"
+                  class="flex gap-6 pb-2"
+                  data-slider-track
+                  role="list"
+                >
+                  <li
+                    class="w-[calc(100%-1.5rem)] shrink-0 snap-start sm:w-4/5 md:w-1/2 lg:w-1/3"
+                    data-slide
+                  >
+                    <article class="h-full rounded-3xl border border-slate-800 bg-slate-900/80 p-6">
+                      <div class="flex items-center gap-4">
+                        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-royal/15 text-lg font-semibold text-royal">AT</div>
+                        <div>
+                          <p class="font-semibold text-white">Ava T.</p>
+                          <p class="text-sm text-slate-400">Sydney, NSW</p>
+                        </div>
+                      </div>
+                      <div class="mt-4 flex items-center gap-2">
+                        <div class="flex gap-1 text-amber-400" aria-hidden="true">
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                        </div>
+                        <span class="sr-only">Rated 5 out of 5 stars</span>
+                      </div>
+                      <p class="mt-4 text-sm leading-relaxed text-slate-300">
+                        “Fast payouts every time. I love the PayID option and the slot tournaments keep things exciting without needing massive bets.”
+                      </p>
+                    </article>
+                  </li>
+                  <li class="w-[calc(100%-1.5rem)] shrink-0 snap-start sm:w-4/5 md:w-1/2 lg:w-1/3" data-slide>
+                    <article class="h-full rounded-3xl border border-slate-800 bg-slate-900/80 p-6">
+                      <div class="flex items-center gap-4">
+                        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-royalAccent/15 text-lg font-semibold text-royalAccent">LR</div>
+                        <div>
+                          <p class="font-semibold text-white">Liam R.</p>
+                          <p class="text-sm text-slate-400">Brisbane, QLD</p>
+                        </div>
+                      </div>
+                      <div class="mt-4 flex items-center gap-2">
+                        <div class="flex gap-1 text-amber-400" aria-hidden="true">
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                          <svg class="h-4 w-4 text-slate-500" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                        </div>
+                        <span class="sr-only">Rated 4 out of 5 stars</span>
+                      </div>
+                      <p class="mt-4 text-sm leading-relaxed text-slate-300">
+                        “Promotions feel achievable and the support team actually answers questions. The dark mode layout is a win for night sessions.”
+                      </p>
+                    </article>
+                  </li>
+                  <li class="w-[calc(100%-1.5rem)] shrink-0 snap-start sm:w-4/5 md:w-1/2 lg:w-1/3" data-slide>
+                    <article class="h-full rounded-3xl border border-slate-800 bg-slate-900/80 p-6">
+                      <div class="flex items-center gap-4">
+                        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-royal/15 text-lg font-semibold text-royal">NZ</div>
+                        <div>
+                          <p class="font-semibold text-white">Noah Z.</p>
+                          <p class="text-sm text-slate-400">Perth, WA</p>
+                        </div>
+                      </div>
+                      <div class="mt-4 flex items-center gap-2">
+                        <div class="flex gap-1 text-amber-400" aria-hidden="true">
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" opacity="0.6"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                        </div>
+                        <span class="sr-only">Rated 4.5 out of 5 stars</span>
+                      </div>
+                      <p class="mt-4 text-sm leading-relaxed text-slate-300">
+                        “Live dealers run smoothly on mobile and the loyalty missions actually reward consistent play. Verification was approved same day.”
+                      </p>
+                    </article>
+                  </li>
+                  <li class="w-[calc(100%-1.5rem)] shrink-0 snap-start sm:w-4/5 md:w-1/2 lg:w-1/3" data-slide>
+                    <article class="h-full rounded-3xl border border-slate-800 bg-slate-900/80 p-6">
+                      <div class="flex items-center gap-4">
+                        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-royalAccent/15 text-lg font-semibold text-royalAccent">MW</div>
+                        <div>
+                          <p class="font-semibold text-white">Maya W.</p>
+                          <p class="text-sm text-slate-400">Melbourne, VIC</p>
+                        </div>
+                      </div>
+                      <div class="mt-4 flex items-center gap-2">
+                        <div class="flex gap-1 text-amber-400" aria-hidden="true">
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" opacity="0.6"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                          <svg class="h-4 w-4 text-slate-500" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                        </div>
+                        <span class="sr-only">Rated 3.5 out of 5 stars</span>
+                      </div>
+                      <p class="mt-4 text-sm leading-relaxed text-slate-300">
+                        “Great variety of pokies and the mobile site feels tailored for dark mode. Would love to see more jackpot trackers in the lobby.”
+                      </p>
+                    </article>
+                  </li>
+                  <li class="w-[calc(100%-1.5rem)] shrink-0 snap-start sm:w-4/5 md:w-1/2 lg:w-1/3" data-slide>
+                    <article class="h-full rounded-3xl border border-slate-800 bg-slate-900/80 p-6">
+                      <div class="flex items-center gap-4">
+                        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-royal/15 text-lg font-semibold text-royal">OS</div>
+                        <div>
+                          <p class="font-semibold text-white">Olivia S.</p>
+                          <p class="text-sm text-slate-400">Adelaide, SA</p>
+                        </div>
+                      </div>
+                      <div class="mt-4 flex items-center gap-2">
+                        <div class="flex gap-1 text-amber-400" aria-hidden="true">
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" opacity="0.4"><path d="M10 1.5 12.59 7l6.41.55-4.9 4.27 1.47 6.18L10 14.9l-5.57 3.1 1.47-6.18-4.9-4.27L7.41 7 10 1.5Z" /></svg>
+                        </div>
+                        <span class="sr-only">Rated 4 out of 5 stars</span>
+                      </div>
+                      <p class="mt-4 text-sm leading-relaxed text-slate-300">
+                        “Weekly cashback hits my account Monday mornings and the PayID withdrawals are consistently under two hours.”
+                      </p>
+                    </article>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="border-t border-slate-800 bg-slate-950/80">
+        <div class="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+          <div class="space-y-3">
+            <p class="text-base font-semibold text-white">Royal Reels Casino</p>
+            <p class="max-w-xl text-xs text-slate-500">
+              Gambling can be harmful if not controlled. Please play responsibly and seek help if gambling becomes a problem. External support is available at Gambling Help Online and Lifeline Australia.
+            </p>
+          </div>
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+            <a href="#" class="transition hover:text-royalAccent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent">Terms</a>
+            <a href="#" class="transition hover:text-royalAccent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent">Privacy</a>
+            <a id="responsible" href="#" class="transition hover:text-royalAccent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royalAccent">Responsible Gaming</a>
+          </div>
+        </div>
+        <div class="border-t border-slate-800 py-6">
+          <p class="text-center text-xs text-slate-500">&copy; <span id="year">2024</span> Royal Reels Casino. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
